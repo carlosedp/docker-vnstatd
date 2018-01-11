@@ -1,9 +1,11 @@
-FROM debian:jessie
+FROM alpine
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        vnstat \
-      && rm -rf /var/lib/apt/lists/*
-
+RUN apk update && \
+    apk upgrade && \
+    apk add vnstat
+    
+## Clean apk cache files
+RUN rm -rf /var/cache/apk/*
 
 VOLUME /var/lib/vnstat
 
