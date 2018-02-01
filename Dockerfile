@@ -7,7 +7,7 @@ LABEL maintainer="carlosedp"
 ARG arch=amd64
 ENV ARCH=$arch
 
-COPY tmp/qemu-$ARCH-static /usr/bin/qemu-$ARCH-static
+COPY .blank tmp/qemu-$ARCH-static* /usr/bin/
 
 RUN apk update && \
     apk upgrade && \
